@@ -1,0 +1,16 @@
+{
+  "name": "oswd-portfolio",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Blaze Smith",
+  "license": "ISC",
+  "description": "OSWD Portfolio web application",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
