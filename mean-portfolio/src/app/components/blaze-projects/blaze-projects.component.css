@@ -1,0 +1,107 @@
+.projectsMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .projectsAside {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    background: rgb(224, 224, 224);
+    background: #f7f7f7;
+    background: #ededed;
+    box-shadow: 9px 9px 18px #c9c9c9, -9px -9px 18px #ffffff;
+    padding: 3em;
+    margin: 0px 30px 30px 30px;
+    width: 65%;
+    max-width: 300px;
+    min-height: 200px;
+    text-align: center;
+  }
+  
+  .projectImgs {
+    max-width: 300px;
+    max-height: 170px;
+  }
+  
+  .projectsAside h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .projectsAside p {
+    font-size: 0.8rem;
+    text-align: center;
+    width: 100%;
+    margin: 3px;
+  }
+  
+  .projectsAside ul {
+    margin: 0;
+  }
+  
+  .projectsAside li {
+    font-size: 13px;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .projectsAside svg {
+    margin: 0;
+  }
+  
+  .completed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 10px 10px 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(46, 177, 35, 1) 0%,
+      rgba(51, 218, 49, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(46, 177, 35, 1);
+  }
+  
+  .inProgress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    margin: 10px 25px 10px 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(231, 201, 10, 1) 0%,
+      rgba(255, 229, 0, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(231, 201, 10, 1);
+  }
+  
+  .completed:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .inProgress:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }

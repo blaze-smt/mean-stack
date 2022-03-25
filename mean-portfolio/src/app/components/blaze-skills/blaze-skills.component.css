@@ -1,0 +1,31 @@
+.skillsMain {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 130px;
+    height: 130px;
+    padding: 30px;
+    margin: 25px;
+    border-radius: 30px;
+    background: rgb(224, 224, 224);
+    background: #f7f7f7;
+    background: #ededed;
+    box-shadow: 9px 9px 18px #c9c9c9, -9px -9px 18px #ffffff;
+  }
+  
+  .skills img {
+    height: 80px;
+  }
+  
+  .skills-caption {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  

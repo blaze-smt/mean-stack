@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BlazeSkillsComponent } from './components/blaze-skills/blaze-skills.component';
 import { BlazeProjectsComponent } from './components/blaze-projects/blaze-projects.component';
 import { BlazeContactComponent } from './components/blaze-contact/blaze-contact.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BlazeContactComponent } from './components/blaze-contact/blaze-contact.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

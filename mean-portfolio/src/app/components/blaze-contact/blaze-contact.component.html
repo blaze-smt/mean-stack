@@ -1,1 +1,67 @@
-<p>blaze-contact works!</p>
+<div class="seperatorContainer">
+    <section class="seperator" id="contact"><h2>Contact</h2></section>
+  </div>
+  <!-- CONTACT START -->
+  <article class="bodyContainer">
+    <div class="contactContainer">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <fieldset class="contact-form">
+          <label for="firstName">Enter your First and Last Name: </label><br />
+          <input
+            #name="ngModel"
+            class="form-inputs"
+            type="text"
+            name="name"
+            required
+            ngModel
+            [ngClass]="{'green-border': name.touched && name.valid, 'red-border': name.touched && name.invalid}"
+            [attr.disabled]="status ? '' : null"
+          />
+          <span id="message" *ngIf="name.touched && name.invalid">
+            Name is required
+          </span>
+          <br />
+          <label for="companyName">Enter your Company Name: </label><br />
+          <input
+            #companyName="ngModel"
+            class="form-inputs"
+            type="text"
+            name="companyName"
+            tabindex="0"
+            required
+            ngModel
+            [ngClass]="{'green-border': companyName.touched && companyName.valid, 'red-border': companyName.touched && companyName.invalid}"
+            [attr.disabled]="status ? '' : null"
+          />
+          <span id="message" *ngIf="companyName.touched && companyName.invalid">
+            Company name is required
+          </span>
+          <br />
+          <label for="email">Enter your Email: </label><br />
+          <input
+            #email="ngModel"
+            class="form-inputs"
+            type="text"
+            name="email"
+            id="email"
+            required
+            ngModel
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            [ngClass]="{'green-border': email.touched && email.valid, 'red-border': email.touched && email.invalid}"
+            [attr.disabled]="status ? '' : null"  
+          />
+          <span id="message" *ngIf="email.touched && email.invalid">
+            Email is invalid
+          </span>
+          <br />
+          <div class="submit-container">
+            <button *ngIf="name.valid && companyName.valid && email.valid" [ngClass]="status ? 'hide' : 'show'" id="submit" type="submit">Submit</button>
+          </div>
+          <span [ngClass]="status ? 'show' : 'hide'" id="success">
+            I will contact you shortly :)
+          </span>
+        </fieldset>
+      </form>
+    </div>
+  </article>
+  <!-- CONTACT END -->
