@@ -1,7 +1,7 @@
 // Set Variables
 const express = require("express");
 const path = require("path");
-const routes = require("./app/routes");
+const routes = require("./routes");
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -10,9 +10,9 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-const userRoute = require('./app/routes/user.route');
+const userRoute = require('./routes/user.route');
 
-// Connecting with mongo db
+// Connecting with Mongodb
 mongoose
   .connect('mongodb://127.0.0.1:27017/portfolio-db')
   .then((x) => {
@@ -22,23 +22,12 @@ mongoose
     console.error('Error connecting to mongo', err.reason)
   })
 
-// Setting up port with express js
+// JSON Parser
 app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  }),
-);
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'mean-portfolio')));
-app.use('/', express.static(path.join(__dirname, 'mean-portfolio')));
-app.use('/api', userRoute);
 
-// Set path for static folder
-app.use(express.static(path.join(__dirname, "./public/static")));
-
-// Route for index page
-app.use("/", routes);
+// Angular build directory
+var distDir = __dirname + "../mean-portfolio/dist/";
+app.use(express.static(distDir));
 
 // Error Handling
 app.use((err, request, response, next) => {
