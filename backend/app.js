@@ -1,33 +1,56 @@
 // Set Variables
 const express = require("express");
 const path = require("path");
-const routes = require("./routes");
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-const userRoute = require('./routes/user.route');
-
 // Connecting with Mongodb
 mongoose
-  .connect('mongodb://127.0.0.1:27017/portfolio-db')
+  .connect("mongodb://127.0.0.1:27017/portfolio-db")
   .then((x) => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
   })
   .catch((err) => {
-    console.error('Error connecting to mongo', err.reason)
-  })
+    console.error("Error connecting to mongo", err.reason);
+  });
 
 // JSON Parser
 app.use(bodyParser.json());
 
-// Angular build directory
-var distDir = __dirname + "../mean-portfolio/dist/";
-app.use(express.static(distDir));
+// CORS Headers
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+// Dislay Angular build directory
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+app.use(express.static(path.join(__dirname, "./static")));
+
+// Display Routes
+const homeRouter = require("./routes/index");
+app.use("/", homeRouter);
+
+const skillsRouter = require("./routes/skills");
+app.use("/skills", skillsRouter);
+
+const projectsRouter = require("./routes/projects");
+app.use("/projects", projectsRouter);
+
+const contactRouter = require("./routes/contact");
+app.use("/contact", contactRouter);
 
 // Error Handling
 app.use((err, request, response, next) => {
