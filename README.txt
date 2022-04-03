@@ -22,7 +22,7 @@ for this so my branches and commits have big gaps in between.
 //Guide//
 -open the application root folder in terminal/cmd
 -type 'npm start'
--open your browser and goto http://localhost:3000/
+-open your browser and go to http://localhost:3000/
 
 
 //License//
